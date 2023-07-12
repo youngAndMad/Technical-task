@@ -24,7 +24,8 @@ public class QRServiceImpl implements QRService {
     @Value("${qr.image.path}")
     private String imagePath;
 
-    @Scheduled(cron = "0 0 0 * * *")
+    @Scheduled(cron = "0 58 3 * * *")
+    // ss mm hh dd mm hh
     public void generate() throws Exception {
         BitMatrix matrix = new MultiFormatWriter().encode(
                 new String(qrURL.getBytes(charset), charset),
