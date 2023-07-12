@@ -6,6 +6,7 @@ import com.google.zxing.client.j2se.MatrixToImageWriter;
 import com.google.zxing.common.BitMatrix;
 import danekerscode.server.service.QRService;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Service;
 
 import javax.imageio.ImageIO;
@@ -23,11 +24,11 @@ public class QRServiceImpl implements QRService {
     @Value("${qr.image.path}")
     private String imagePath;
 
-    @Override
-    public void generate(int height, int width) throws Exception {
+    @Scheduled(cron = "0 0 0 * * *")
+    public void generate() throws Exception {
         BitMatrix matrix = new MultiFormatWriter().encode(
                 new String(qrURL.getBytes(charset), charset),
-                BarcodeFormat.QR_CODE, width, height);
+                BarcodeFormat.QR_CODE, 400, 400);
 
         MatrixToImageWriter.writeToFile(
                 matrix,
@@ -37,7 +38,6 @@ public class QRServiceImpl implements QRService {
 
     @Override
     public byte[] getQR() throws Exception {
-        this.generate(600, 600);
 
         BufferedImage bufferedImage = ImageIO.read(new File(imagePath));
         ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
