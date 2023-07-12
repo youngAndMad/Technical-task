@@ -18,10 +18,8 @@ public class ClientServiceImpl implements ClientService {
 
     @Override
     public Client register(Integer chatId) {
-        if (clientRepository.findByChatId(chatId).isPresent()){
-            throw new ClientRegisteredYetException();
-        }
-        return clientRepository.save(new Client(chatId));
+        var client = clientRepository.findByChatId(chatId);
+        return client.orElseGet(() -> clientRepository.save(new Client(chatId)));
     }
 
     @Override

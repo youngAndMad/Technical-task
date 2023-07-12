@@ -53,15 +53,7 @@ public class TelegramBot extends TelegramLongPollingBot{
 
         if (text.equals("/start")){
             var response = backend.register(chatId);
-            if (response.status() == 201){
-                send(chatId, parseModelResponse(response).toString());
-            } else if (response.status() == 400) {
-                var responseMsg = """
-                        Hello world from Danekerscode
-                        """;
-
-                send(chatId , responseMsg);
-            }
+            send(chatId,response.toString());
         }
     }
 

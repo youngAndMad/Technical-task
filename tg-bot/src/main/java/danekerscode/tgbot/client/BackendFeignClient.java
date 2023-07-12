@@ -11,5 +11,5 @@ import org.springframework.web.bind.annotation.RequestParam;
 @FeignClient(name = "backend" , url = "http://localhost:8080/api/v1/client")
 public interface BackendFeignClient {
     @PostMapping
-    Response register(@RequestParam("chat-id") long chatId);
+    Client register(@RequestParam("chat-id") long chatId);
 }

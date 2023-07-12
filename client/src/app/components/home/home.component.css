@@ -1,0 +1,18 @@
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.container__image img{
+  border: 2px solid #000;
+}
+
+#text{
+  color: white;
+  font-size: 32px;
+  font-family: "Yu Gothic UI Semibold", serif;
+  letter-spacing: 2px;
+}
+
