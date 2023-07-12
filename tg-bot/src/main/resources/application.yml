@@ -1,0 +1,13 @@
+#spring:
+#  cloud:
+#    openfeign:
+#      client:
+#        backend:
+#          url: http://localhost:8080/api/v1/client
+server:
+  port: 4317
+
+telegram:
+  bot:
+    username: TestTelegramCommOrderBot
+    token: 6304298835:AAGUQtfZsYwXGZeFNHiOnDodsN7NS_F6AoM

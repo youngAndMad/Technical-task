@@ -1,0 +1,16 @@
+qr:
+  url: https://t.me/TestTelegramCommOrderBot
+  charset: UTF-8
+  image:
+    path: qr.png
+spring:
+  datasource:
+    password: postgres
+    username: postgres
+    url: jdbc:postgresql://localhost:5432/postgres
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
+    hibernate:
+      ddl-auto: update
+
