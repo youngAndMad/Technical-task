@@ -24,13 +24,10 @@ public class Client {
     private LocalDateTime startBotTime;
     private LocalDateTime lastActionTime;
 
-    @PrePersist()
-    private void onCreate(){
-        this.lastActionTime = now();
-        this.startBotTime = now();
-    }
 
-    public Client(Integer chatId) {
+    public Client(Integer chatId , LocalDateTime startBotTime) {
         this.chatId = chatId;
+        this.startBotTime = startBotTime;
+        this.lastActionTime = now();
     }
 }

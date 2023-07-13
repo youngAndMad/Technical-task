@@ -2,9 +2,10 @@ package danekerscode.server.controller;
 
 import danekerscode.server.service.ClientService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
+
+import java.time.LocalDateTime;
 
 @RestController
 @RequiredArgsConstructor
@@ -23,7 +24,14 @@ public class ClientController {
     @GetMapping("{id}")
     ResponseEntity<?> findById(
             @PathVariable Integer id
-    ){
+    ) {
         return ResponseEntity.ok(clientService.findById(id));
+    }
+
+    @PutMapping("{id}")
+    ResponseEntity<?> updateLastActionTime(
+            @PathVariable Integer id
+    ) {
+        return ResponseEntity.ok(clientService.updateLastActionTime(id));
     }
 }
