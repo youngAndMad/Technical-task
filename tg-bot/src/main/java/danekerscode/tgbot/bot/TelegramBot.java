@@ -67,14 +67,4 @@ public class TelegramBot extends TelegramLongPollingBot{
         }
     }
 
-    private static Client parseModelResponse(Response response) {
-        try {
-            ObjectMapper objectMapper = new ObjectMapper();
-            byte[] bodyBytes = response.body().asInputStream().readAllBytes();
-            return objectMapper.readValue(bodyBytes, Client.class);
-        } catch (IOException e) {
-            log.error("error during casting");
-        }
-        return null;
-    }
 }
