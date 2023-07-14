@@ -22,5 +22,6 @@ spring:
     user: postgres
     locations: classpath:db/migration
 
-
-
+location:
+  latitude: 52
+  longitude: 77

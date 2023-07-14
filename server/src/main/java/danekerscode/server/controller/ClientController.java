@@ -1,11 +1,10 @@
 package danekerscode.server.controller;
 
+import danekerscode.server.payload.Location;
 import danekerscode.server.service.ClientService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-
-import java.time.LocalDateTime;
 
 @RestController
 @RequiredArgsConstructor
@@ -16,22 +15,23 @@ public class ClientController {
 
     @PostMapping
     ResponseEntity<?> register(
-            @RequestParam("chat-id") Integer id
-    ) {
+            @RequestParam("chat-id") Integer id) {
         return ResponseEntity.status(201).body(clientService.register(id));
-    }
-
-    @GetMapping("{id}")
-    ResponseEntity<?> findById(
-            @PathVariable Integer id
-    ) {
-        return ResponseEntity.ok(clientService.findById(id));
     }
 
     @PutMapping("{id}")
     ResponseEntity<?> updateLastActionTime(
-            @PathVariable Integer id
-    ) {
+            @PathVariable Integer id) {
         return ResponseEntity.ok(clientService.updateLastActionTime(id));
     }
+
+    @PostMapping("location")
+    ResponseEntity<?> setVisited(
+            @RequestParam("id") Integer id,
+            @RequestParam("longitude") Integer longitude,
+            @RequestParam("latitude") Integer latitude) {
+        System.out.println("hello");
+        return ResponseEntity.accepted().body(clientService.setVisited(id, latitude, longitude));
+    }
+
 }

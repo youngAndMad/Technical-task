@@ -1,13 +1,13 @@
 package danekerscode.server.service;
 
 import danekerscode.server.model.Client;
-
-import java.time.LocalDateTime;
+import danekerscode.server.payload.Location;
 
 public interface ClientService {
     Client register(Integer chatId);
 
-    Client findById(Integer id);
-
     Client updateLastActionTime(Integer id);
+
+    boolean setVisited(Integer id, Integer latitude, Integer longitude);
+
 }

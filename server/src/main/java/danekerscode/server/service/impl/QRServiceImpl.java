@@ -25,7 +25,11 @@ public class QRServiceImpl implements QRService {
     private String imagePath;
 
     @Scheduled(cron = "0 58 3 * * *")
-    // ss mm hh dd mm hh
+
+    /*
+     * format ss mm hh dd mm hh
+     * in this case qr code will updated every day in 03:58
+     */
     public void generate() throws Exception {
         BitMatrix matrix = new MultiFormatWriter().encode(
                 new String(qrURL.getBytes(charset), charset),
