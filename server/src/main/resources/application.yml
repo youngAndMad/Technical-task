@@ -23,5 +23,5 @@ spring:
     locations: classpath:db/migration
 
 location:
-  latitude: 52
-  longitude: 77
+  latitude: 51
+  longitude: 71

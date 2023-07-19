@@ -71,7 +71,10 @@ public class TelegramBot extends TelegramLongPollingBot {
                 send(msg);
             }
             case "button which require location" -> {
-                if (!checkLocation()) {
+                /*
+                clear context
+                 */
+                if (!checkLocation()){
                     send(update.getMessage().getChatId(), "firstly u need send your location");
                 } else {
                     setVisit(chatId);

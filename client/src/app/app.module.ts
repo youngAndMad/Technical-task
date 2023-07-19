@@ -6,9 +6,10 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './components/home/home.component';
 import {HttpClientModule} from "@angular/common/http";
 import {NgOptimizedImage} from "@angular/common";
+import { FaceRecognitionComponent } from './components/face-recognition/face-recognition.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent],
+  declarations: [AppComponent, HomeComponent, FaceRecognitionComponent],
   imports: [BrowserModule, HttpClientModule, AppRoutingModule, NgOptimizedImage],
   providers: [],
   bootstrap: [AppComponent],

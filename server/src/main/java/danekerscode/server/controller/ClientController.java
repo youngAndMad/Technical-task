@@ -30,7 +30,6 @@ public class ClientController {
             @RequestParam("id") Integer id,
             @RequestParam("longitude") Integer longitude,
             @RequestParam("latitude") Integer latitude) {
-        System.out.println("hello");
         return ResponseEntity.accepted().body(clientService.setVisited(id, latitude, longitude));
     }
 
